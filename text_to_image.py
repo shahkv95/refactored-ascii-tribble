@@ -1,14 +1,24 @@
-from PIL import Image, ImageDraw       # PIL - Python Imaging Library
-import os                   # provides functionalities to be carried upon directories
+from PIL import Image, ImageDraw                  # PIL - Python Imaging Library
+import os                                         # provides functionalities to be carried upon directories
 
-# Name of the file to be created
-image_name = "new_image.png"
+def main():
 
-# Create the image
-create_image = Image.new(mode = "RGB", size = (200,70), color = "red")      # creates new image with given mode, size and color
+    # Name of the file to be created
+    image_name = "new_image.png"
 
-# Save the image
-create_image.save(image_name)
+    # Create the image
+    create_image = Image.new(mode = "RGB", size = (250,100), color = "blue")      # creates new image with given mode, size and color
 
-# Open the image
-os.system(image_name)
+    # Save the image
+    create_image.save(image_name)
+
+    # Open the image
+    current_directory = os.getcwd()
+    image_address = current_directory +"/" + image_name
+    print(current_directory +"/" + image_name)
+    opening_image = Image.open(image_address)
+    opening_image.show()
+
+
+if __name__ == "__main__":
+    main()
